@@ -83,7 +83,6 @@ import com.csmtech.service.TestTakerService;
 import com.csmtech.util.EmailService;
 
 @Controller
-@RequestMapping("exam")
 public class CandidateController {
 
 	@PersistenceContext

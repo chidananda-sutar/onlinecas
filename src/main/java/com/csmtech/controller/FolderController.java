@@ -27,7 +27,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -47,7 +46,6 @@ import com.csmtech.service.QuestionTypeService;
 import com.csmtech.service.SubItemService;
 
 @Controller
-@RequestMapping(path = "exam")
 public class FolderController {
 
 	@Autowired
@@ -171,7 +169,7 @@ public class FolderController {
 		String subItemName = subItemService.findSubItemNameById(subItemId);
 		// System.out.println("subItemName::::" + subItemName);
 
-		String firstOneChar = new Character(subItemName.charAt(0)).toString();
+		String firstOneChar = subItemName.substring(0,1);
 
 		// System.out.println(firstOneChar.toUpperCase() + "%%%%%%%%%%%%%%%%%%%%%%");
 		model.addAttribute("firstOneChar", firstOneChar.toUpperCase());

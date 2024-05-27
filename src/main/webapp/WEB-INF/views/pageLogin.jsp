@@ -22,7 +22,7 @@ src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script
 <style>
 
 body {
-background: url(/img/loginbg.jpg) !important;
+background: url(./img/loginbg.jpg) !important;
 background-size: cover !important;
 padding-top: 20vh !important;
 background-position: bottom;

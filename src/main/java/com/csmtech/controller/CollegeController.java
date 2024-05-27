@@ -25,7 +25,6 @@ import com.csmtech.util.FileUploadUtil;
 import com.google.gson.Gson;
 
 @Controller
-@RequestMapping("exam")
 public class CollegeController {
 
 	@Autowired

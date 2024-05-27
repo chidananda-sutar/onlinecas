@@ -1,20 +1,15 @@
 package com.csmtech.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import javax.persistence.NonUniqueResultException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.poi.hpsf.Array;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,15 +17,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.csmtech.bean.QuestionBean;
 import com.csmtech.model.CorrectAnswer;
-import com.csmtech.model.Items;
 import com.csmtech.model.Question;
 import com.csmtech.model.QuestionSubTest;
 import com.csmtech.model.QuestionType;
@@ -38,8 +30,6 @@ import com.csmtech.model.SubItem;
 import com.csmtech.model.SubTest;
 import com.csmtech.model.Test;
 import com.csmtech.model.User;
-import com.csmtech.repository.QuestionRepository;
-import com.csmtech.repository.SubTestRepository;
 import com.csmtech.service.CorrectAnswerService;
 import com.csmtech.service.ItemService;
 import com.csmtech.service.QuestionService;
@@ -52,14 +42,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
-@RequestMapping("exam")
 public class TestController {
-
-	@Autowired
-	private QuestionRepository questionRepository;
-
-	@Autowired
-	private SubTestRepository subTestRepository;
 
 	@Autowired
 	private TestService testService;
@@ -237,7 +220,6 @@ public class TestController {
 		//System.out.println("GetAll question by questionId" + qsubTest);
 		logger.info("GetAll question by questionId" + qsubTest);
 		List<String> questionIdList = new ArrayList<>();
-		int index = 0;
 
 		for (QuestionSubTest q : qsubTest) {
 
@@ -246,14 +228,12 @@ public class TestController {
 				questionIdList.add(q.getQuestion().getItem().getItemName() + "-"
 						+ q.getQuestion().getQuestionType().getQuestionTypeName() + "_"
 						+ q.getQuestion().getQuestionId());
-				index++;
 
 			} else {
 
 				questionIdList.add(q.getQuestion().getItem().getItemName() + "-"
 						+ q.getQuestion().getQuestionType().getQuestionTypeName() + "-"
 						+ q.getQuestion().getSubItem().getSubItemName() + "_" + q.getQuestion().getQuestionId());
-				index++;
 			}
 		}
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -273,25 +253,21 @@ public class TestController {
 		model.addAttribute("username", user.getName());
 		Integer sId = (Integer) httpSession.getAttribute("stestData");
 		model.addAttribute("subTestId", sId);
-		QuestionBean qb = new QuestionBean();
 		
 		List<QuestionBean> qList = questionSubTestService.findAllQuestionBySubTest(sId);
 		
 
 		List<String> questList = new ArrayList<>();
-		int index = 0;
 		for (QuestionBean ques : qList) {
 			System.out.println(ques.getQuestionId());
 			if (ques.getSubItem() == null) {
 				questList.add(ques.getItem().getItemName() + "-" + ques.getQuestionType().getQuestionTypeName() + "_"
 						+ ques.getQuestionId());
-				index++;
 			}
 
 			else {
 				questList.add(ques.getItem().getItemName() + "-" + ques.getQuestionType().getQuestionTypeName() + "-"
 						+ ques.getSubItem().getSubItemName() + "_" + ques.getQuestionId());
-				index++;
 			}
 		}
 		List<SubTest> stList = subTestService.findAllSubTest();
@@ -327,7 +303,6 @@ public class TestController {
 
 		logger.info("INSIDE AJAX ADD QUESTION by TEST" + testId);
 		String sts = "";
-		PrintWriter pw = resp.getWriter();
 
 		List<SubTest> subtestList = subTestService.getAllSubTestByTestId(testId);
 
@@ -414,7 +389,6 @@ public class TestController {
 
 		//System.out.println("ist coming");
 		String st = "";
-		PrintWriter pw = resp.getWriter();
 
 		List<SubItem> subList = subItemService.getAllSubItemsByQuestionTypeId(questionTypeId, itemId);
 		List<Question> qList = questionService.getAllQuestionByItemId(itemId, questionTypeId);
@@ -481,7 +455,6 @@ public class TestController {
 				+ questionList.get(0).getQuestionType().getQuestionTypeName() + "-"
 				+ questionList.get(0).getSubItem().getSubItemName() + "_";
 //		String st = "";
-		int index = 0;
 		for (Question ques : questionList) {
 			st = st + ques.getQuestionId() + ",";
 
@@ -499,7 +472,6 @@ public class TestController {
 
 		logger.info("here come");
 		Integer subTestId = (Integer) httpSession.getAttribute("stestData");
-		SubTest subTest = subTestService.findSubTest(subTestId);
 
 		logger.info("Saved method");
 
@@ -524,12 +496,6 @@ public class TestController {
 			questionSubTestList.add(questionSubTest);
 		});
 		questionSubTestService.saveAll(questionSubTestList);
-
-		QuestionSubTest questionSubTest = new QuestionSubTest();
-
-		List<QuestionSubTest> qSubTest = questionSubTestService.findAll();
-
-		//System.out.println("getting the page.....");
 
 		return "redirect:./byItemLink?sId=" + subTestId;
 
@@ -606,10 +572,6 @@ public class TestController {
 	questionSubTestList.add(questionSubTest);
 	});
 	questionSubTestService.saveAll(questionSubTestList);
-
-	QuestionSubTest questionSubTest = new QuestionSubTest();
-
-	List<QuestionSubTest> qSubTest = questionSubTestService.findAll();
 
 	return "redirect:./byTestLink?sId=" + sId;
 	}

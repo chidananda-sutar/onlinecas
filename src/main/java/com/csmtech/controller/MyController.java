@@ -1,35 +1,55 @@
 package com.csmtech.controller;
 
-import com.csmtech.exporter.ResultExcelExporter;
-import com.csmtech.model.*;
-import com.csmtech.service.*;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.TimeZone;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
-import java.util.*;
+import com.csmtech.exporter.ResultExcelExporter;
+import com.csmtech.model.Candidate;
+import com.csmtech.model.Configure;
+import com.csmtech.model.Reason;
+import com.csmtech.model.Role;
+import com.csmtech.model.SubTestTaker;
+import com.csmtech.model.User;
+import com.csmtech.service.CandidateService;
+import com.csmtech.service.ConfigureService;
+import com.csmtech.service.ReasonService;
+import com.csmtech.service.RoleService;
+import com.csmtech.service.SubTestTakerService;
+import com.csmtech.service.TestTakerService;
+import com.csmtech.service.UserService;
 
 @Controller
 @CrossOrigin("*")
-@RequestMapping("/onlinecas")
 public class MyController {
 
 	@Autowired
@@ -45,9 +65,6 @@ public class MyController {
 	private UserService userService;
 
 	@Autowired
-	private QuestionService questionService;
-
-	@Autowired
 	private ConfigureService configureService;
 
 	@Autowired
@@ -59,9 +76,6 @@ public class MyController {
 	private ReasonService reasonServices;
 	@Autowired
 	private CandidateService candidateService;
-
-	@Autowired
-	private CandidateController candidateController;
 
 	private static final Logger logger = LoggerFactory.getLogger(MyController.class);
 
@@ -174,11 +188,7 @@ public class MyController {
 
 				int roleid = userService.findRoleIdByUsernameAndPassword(username, password);
 
-				Role role = roleService.findById(roleid);
-
 				logger.info("---------Role Id is -> " + roleid);
-
-				String roleName = role.getRoleName();
 
 				httpSession.setAttribute("sessionData", user);
 

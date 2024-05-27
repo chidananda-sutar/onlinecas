@@ -21,19 +21,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.converter.MessageConversionException;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.context.request.RequestAttributes;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.csmtech.bean.QuestionBean;
@@ -47,7 +42,6 @@ import com.csmtech.model.Reason;
 import com.csmtech.model.SubTest;
 import com.csmtech.model.SubTestTaker;
 import com.csmtech.model.User;
-import com.csmtech.repository.CandidateRepository;
 import com.csmtech.service.AnswerService;
 import com.csmtech.service.CandidateService;
 import com.csmtech.service.ConfigureService;
@@ -61,11 +55,7 @@ import com.csmtech.service.UserService;
 
 @Controller
 @EnableScheduling
-@RequestMapping("exam")
 public class ProctorController {
-
-	@Autowired
-	private CandidateRepository canRepository;
 
 	@Autowired
 	private SimpMessagingTemplate template;
@@ -296,14 +286,12 @@ public class ProctorController {
 		Integer sId = (Integer) httpSession.getAttribute("subtesttakerId");
 		Integer candid=null;
 		try {
-			candid=new Integer(id);
+			candid=Integer.valueOf(id);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		boolean flag = candidateService.updateStatus(candid);
 		if (flag) {
-			//System.out.println("Updated Successfully.");
 		}
         return "redirect:/exam/monitor?subtesttakerId=" + sId;
     }
