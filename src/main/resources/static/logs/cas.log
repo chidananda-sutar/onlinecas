@@ -568,3 +568,9 @@ com.csmtech.controller.MyController#handleError() mapped.
 2024-05-27 16:41:11,030 DEBUG com.csmtech.OnlineCsmExamApplication [restartedMain] Running with Spring Boot v2.7.8, Spring v5.3.25
 2024-05-27 16:41:11,030 INFO com.csmtech.OnlineCsmExamApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
 2024-05-27 16:41:14,096 INFO com.csmtech.OnlineCsmExamApplication [restartedMain] Started OnlineCsmExamApplication in 3.128 seconds (JVM running for 421.748)
+2024-05-27 16:41:15,899 INFO com.csmtech.OnlineCsmExamApplication [restartedMain] Starting OnlineCsmExamApplication using Java 17.0.6 on CSMBHUL1288 with PID 18492 (D:\Projects\cas_project\onlinecas_ws\onlinecas\target\classes started by chidananda.sutar in D:\Projects\cas_project\onlinecas_ws\onlinecas)
+2024-05-27 16:41:15,899 DEBUG com.csmtech.OnlineCsmExamApplication [restartedMain] Running with Spring Boot v2.7.8, Spring v5.3.25
+2024-05-27 16:41:15,899 INFO com.csmtech.OnlineCsmExamApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-05-27 16:41:17,391 INFO com.csmtech.OnlineCsmExamApplication [restartedMain] Started OnlineCsmExamApplication in 1.522 seconds (JVM running for 425.043)
+2024-05-27 16:41:25,631 INFO com.csmtech.controller.MyController [http-nio-8088-exec-2] getting......
+2024-05-27 16:41:28,975 INFO com.csmtech.controller.MyController [http-nio-8088-exec-5] getting......
