@@ -24,16 +24,16 @@ public class OnlineCsmExamApplication implements CommandLineRunner {
 	}
 
 	private static void into(JdbcTemplate jdbcTemplate, String data) {
-		int update = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM csmonlineexam.users WHERE username = 'Admin';",
+		int update = jdbcTemplate.queryForObject("SELECT COUNT(*) FROM users WHERE username = 'Admin';",
 				Integer.class);
 		if (update == 0) {
 			jdbcTemplate.update(
-					"INSERT INTO `csmonlineexam`.`users` (`email`, `gender`, `isdelete`, `name`, `password`, `status`, `user_address`, `username`, `roleid`) VALUES ('admin@gmail.com', 'N/A', 'NO', 'Admin', 'admin@123', '0', 'Ocac tower BBSR', 'Admin', '1');");
+					"INSERT INTO `users` (`email`, `gender`, `isdelete`, `name`, `password`, `status`, `user_address`, `username`, `roleid`) VALUES ('admin@gmail.com', 'N/A', 'NO', 'Admin', 'admin@123', '0', 'Ocac tower BBSR', 'Admin', '1');");
 		}
 	}
 
 	private static void insertion(JdbcTemplate jdbcTemplate, String tbleName, String colName, String data) {
-		String sql = "SELECT COUNT(*) FROM csmonlineexam." + tbleName + " WHERE " + colName + "= '" + data + "'";
+		String sql = "SELECT COUNT(*) FROM " + tbleName + " WHERE " + colName + "= '" + data + "'";
 		int count = jdbcTemplate.queryForObject(sql, Integer.class);
 
 		if (count == 0) {

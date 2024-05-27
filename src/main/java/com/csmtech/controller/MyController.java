@@ -28,8 +28,8 @@ import java.time.ZoneOffset;
 import java.util.*;
 
 @Controller
-@CrossOrigin("http://localhost:8090/")
-@RequestMapping("/exam")
+@CrossOrigin("*")
+@RequestMapping("/onlinecas")
 public class MyController {
 
 	@Autowired
@@ -65,15 +65,10 @@ public class MyController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MyController.class);
 
-	@GetMapping("/login")
+	@GetMapping(value={"/","/login"})
 	public String getLoginPage(Model model) {
 		logger.info("getting......");
 		return "pageLogin";
-	}
-
-	@RequestMapping("/error")
-	public String handleError() {
-		return "error"; // Return the name of your custom error page (error.html)
 	}
 
 	@GetMapping("/backLogin")
