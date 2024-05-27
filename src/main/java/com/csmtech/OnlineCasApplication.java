@@ -10,10 +10,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 
 @SpringBootApplication
 @EnableAsync
-public class OnlineCsmExamApplication implements CommandLineRunner {
+public class OnlineCasApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(OnlineCsmExamApplication.class, args);
+		ConfigurableApplicationContext context = SpringApplication.run(OnlineCasApplication.class, args);
 		JdbcTemplate jdbcTemplate = context.getBean(JdbcTemplate.class);
 		// String schemaName = "csm_online_exam";
 		insertion(jdbcTemplate, "role", "rolename", "Admin");
