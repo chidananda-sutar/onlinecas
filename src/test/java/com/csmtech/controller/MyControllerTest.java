@@ -163,7 +163,7 @@ public class MyControllerTest {
 
         verify(mockModel).addAttribute("cand", mockCandidate);
 
-        assertEquals("forward:/exam/addCandidate", result);
+        assertEquals("forward:addCandidate", result);
     }
 
     @Test

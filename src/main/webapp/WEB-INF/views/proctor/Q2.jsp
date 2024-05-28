@@ -515,7 +515,7 @@ $("#timeid").css("color", "red");
 
 if(diff < 1){
 
-window.location.href = "http://localhost:8088/exam/logout";
+window.location.href = "http://localhost:8088/onlinecas/logout";
 
 }
 
@@ -536,7 +536,7 @@ $("#timeid").text((hour < 10 ? "0"+hour : hour)+":"+(min < 10 ? "0"+min : min)+"
 			</c:if>
 			<c:if test="${currentTime-endExam gt 0}">
 
-				<c:redirect url="http://localhost:8088/exam/logout" />
+				<c:redirect url="logout" />
 	</c:if>
 			<div class="marks border mr-2">
 

@@ -115,7 +115,7 @@ function logCandidateStartTime() {
 
     $.ajax({
         type: "POST",
-        url: "/exam/updateCandStartTime",
+        url: "updateCandStartTime",
         contentType: "application/json",
         data: JSON.stringify(myDto),
         success: function (response) {
@@ -251,7 +251,7 @@ test="${startExam-currentTime lt 0 and endExam-currentExam gt 0}">
 <button class="btn btn-primary btn-start">Continue Exam</button>
 </c:if>
 <c:if test="${currentTime-endExam gt 0}">
-<c:redirect url="http://localhost:8088/exam/logout" />
+<c:redirect url="logout" />
 </c:if>
 </form></div>
 </div>
@@ -280,7 +280,7 @@ test="${startExam-currentTime lt 0 and endExam-currentExam gt 0}">
             // Check if the user clicked "Yes"
             if (result.isConfirmed) {
                 // Call the function to perform the next action
-              window.location.href = "http://localhost:8088/exam/candidateQuestion";
+              window.location.href = "candidateQuestion";
             }
         });
         

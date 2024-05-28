@@ -103,7 +103,7 @@ reason : reason,
 },
 success : function(res) {
 /* alert(res); */
-window.location.href="http://localhost:8088/exam/monitor?subtesttakerId="+res;
+window.location.href="http://localhost:8088/onlinecas/monitor?subtesttakerId="+res;
 }
 });
 }
@@ -113,7 +113,7 @@ window.location.href="http://localhost:8088/exam/monitor?subtesttakerId="+res;
 
  function cancelPopupBlock(sId) {
 	    
-	    window.location.href = "http://localhost:8088/exam/monitor?subtesttakerId="+sId; 
+	    window.location.href = "monitor?subtesttakerId="+sId; 
    
 	}
 </script>

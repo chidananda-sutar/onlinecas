@@ -834,7 +834,7 @@ public class CandidateController {
 			return "candidate/questions";
 		} else {
 			rd.addFlashAttribute("TimeOut", "TimeFailed");
-			return "redirect:/exam/login";
+			return "redirect:/login";
 		}
 
 	}

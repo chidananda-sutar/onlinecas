@@ -360,7 +360,7 @@ public class FolderControllerTest {
   
         String result = folderController.backToItem();
 
-        assertEquals("redirect:/exam/createFolder", result);
+        assertEquals("redirect:createFolder", result);
     }
 
     @Test

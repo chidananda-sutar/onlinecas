@@ -652,7 +652,6 @@ function extractContentBetweenPTags(htmlString) {
                       ' Question successfully Saved',
                       'success'
                       ).then((result) => {
-                      	//$("body").load("http://localhost:8088/exam/createFolder");
                     	  location.reload();
                     	
                   	});
@@ -731,7 +730,6 @@ function extractContentBetweenPTags(htmlString) {
 	                                itemName+' Category successfully Saved',
 	                                'success'
 	                                ).then((result) => {
-	                                	//$("body").load("http://localhost:8088/exam/createFolder");
 	                              	  location.reload();
 	                                	
 	                                	});
@@ -812,7 +810,6 @@ if(itemName == 0 || type == 0 || subItemName.length == 0){
                       subItemName+' SubCategory successfully Saved',
                       'success'
                       ).then((result) => {
-                    	//$("body").load("http://localhost:8088/exam/createFolder");
                     	  location.reload();
                   	});
                   }else if(response == "failed"){

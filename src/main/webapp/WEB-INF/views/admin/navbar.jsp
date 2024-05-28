@@ -51,7 +51,7 @@ navbar {
 	<div class="row">
 		<div class="imgposition col-md-2"
 			style="margin-left: 0px; padding: 15px">
-			<img alt="" src="../img/logocsm.png">
+			<img alt="" src="./img/logocsm.png">
 		</div>
 		<nav class="navbar col-md-10" style="background-color: #23395d">
 			<div>
@@ -94,7 +94,7 @@ navbar {
 					class="navbar-bar p-3" href="./backLogin"><i
 					class="fa fa-sign-out fa-2x text-white" aria-hidden="true"></i> </a>
 				<c:if test="${sessionData == null}">
-					<c:redirect url="${pageContext.request.contextPath}/exam/login" />
+					<c:redirect url="login" />
 				</c:if>
 			</div>
 
