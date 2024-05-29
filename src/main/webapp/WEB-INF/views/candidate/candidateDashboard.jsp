@@ -223,18 +223,18 @@ button.</li>
 <li><strong>Question Navigation: </strong> Utilize the navigation buttons with the questions number provided within the exam interface to move between questions. However, refrain from refreshing or closing the exam page, as doing so may result in disqualification.</li>
 <li>
 <label class="ml-2 d-flex align-items-center"> <img alt=""
-src="../img/greenSQ.png" id="greensquare"
+src="./img/greenSQ.png" id="greensquare"
 style="width: 20px; height: 20px;" class="mr-1"> <strong>indicates
 Answered Questions</strong>
 </label>
 </li>
 <li><label class="ml-2 d-flex align-items-center"> <img
-alt="" src="../img/redsquare.png" id="redsquare"
+alt="" src="./img/redsquare.png" id="redsquare"
 style="width: 20px; height: 20px;" class="mr-1"> <strong>indicates
 Not Answered Questions </strong>
 </label></li>
 <li><label class="ml-2 d-flex align-items-center"><img
-alt="" src="../img/graysquare.png" id="graysquare"
+alt="" src="./img/graysquare.png" id="graysquare"
 style="width: 20px; height: 20px;" class="mr-1"> <strong>
 indicates Not Visited Questions</strong></label></li>
 </ul>

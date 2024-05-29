@@ -595,7 +595,7 @@ input[type="checkbox"]:checked+span {
 									id="background">
 									<div class="imgposition col-md-2"
 										style="margin-left: 1px; margin-bottom: 1em;">
-										<img alt="" src="../img/logocsm.png" id="logoImg">
+										<img alt="" src="./img/logocsm.png" id="logoImg">
 									</div>
 									<div class="col">
 
@@ -674,16 +674,16 @@ style="font-size: 20px; text-shadow: 2px 2px 8px rgb(56, 50, 50);"></label>
 			<div class="marks border mr-2">
 				<div class="row">
 					<label class="ml-4 d-flex align-items-center"> <img alt=""
-						src="../img/greenSQ.png" id="greensquare"
+						src="./img/greenSQ.png" id="greensquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>Answered</strong>
 					</label> <label class="ml-2 d-flex align-items-center"> <img alt=""
-						src="../img/redsquare.png" id="redsquare"
+						src="./img/redsquare.png" id="redsquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>Not
 							Answered</strong>
 					</label>
 					
 					<label class="ml-4 d-flex align-items-center"><img alt=""
-						src="../img/graysquare.png" id="graysquare"
+						src="./img/graysquare.png" id="graysquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>
 							Not Visited</strong></label>
 				</div>

@@ -60,7 +60,8 @@ navbar {
 			<img alt="" src="./img/logocsm.png">
 		</div>
 		<nav class="navbar col-md-10" style="background-color: #23395d">
-					
+					<div>
+					</div>
 					<div>
 					<a class="navbar-bar p-3" href="./candidateAnswerSheet"><i class="fa bi-person-bounding-box fa-2px text-white text-center" aria-hidden="true"></br>Answer Sheet</i></a>
 					<a class="navbar-bar p-3" href="./forgetPassword"><i class="fa fa-key fa-2px text-white text-center" aria-hidden="true"></br>Forget Password</i> </a>
