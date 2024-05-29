@@ -384,7 +384,7 @@ public class MyController {
 		logger.info(candService.updateCandidateById(candid).toString());
 		model.addAttribute("cand", candService.updateCandidateById(candid));
 
-		return "forward:/exam/addCandidate";
+		return "forward:/addCandidate";
 	}
 
 	@GetMapping("/manageUsers")

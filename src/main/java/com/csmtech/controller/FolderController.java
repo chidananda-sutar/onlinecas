@@ -328,7 +328,7 @@ public class FolderController {
 
 	@GetMapping("/goBack")
 	public String backToItem() {
-		return "redirect:/exam/createFolder";
+		return "redirect:createFolder";
 
 	}
 

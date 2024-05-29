@@ -311,7 +311,7 @@ public class ProctorController {
 	 * } catch (NumberFormatException e) { System.out.println("Invalid ID format: "
 	 * + id); } catch (Exception e) { // Log the exception e.printStackTrace(); }
 	 * 
-	 * return "redirect:/exam/monitor"; }
+	 * return "redirect:monitor"; }
 	 */
 
 	 @Scheduled(fixedRate = 5000)
