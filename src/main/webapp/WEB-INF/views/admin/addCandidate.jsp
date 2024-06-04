@@ -68,7 +68,7 @@ crossorigin='anonymous'></script>
 					<td>${candidate.exam.examId }
 					<td>${candidate.address}</td>
 					<td><a onclick="return confirm('Are you want to delete your Details');" href="./deleteCandidate?candid=${candidate.candid}"><i class="fas fa-trash text-danger" style="font-size: 30px"></i></a>&nbsp;&nbsp;
-					<a href="/exam/updateCandidate?candid=${candidate.candid}" onClick="openEditVisible()" class="${key2}"><i class="fas fa-pen-nib text-warning" style="font-size: 30px"></i></a></td>
+					<a href="updateCandidate?candid=${candidate.candid}" onClick="openEditVisible()" class="${key2}"><i class="fas fa-pen-nib text-warning" style="font-size: 30px"></i></a></td>
 				</tr>
 				</c:forEach>
 				

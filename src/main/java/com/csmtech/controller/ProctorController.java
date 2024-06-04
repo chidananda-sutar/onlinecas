@@ -164,7 +164,7 @@ public class ProctorController {
 		System.out.println(qs + "SDFGHJKI");
 		questionService.saveQuestion(qs);
 		System.out.println("inside save qst......");
-		return "redirect:/exam/getQuestion";
+		return "redirect:/getQuestion";
 	}
 
 	@PostMapping("/findProctor")
@@ -293,7 +293,7 @@ public class ProctorController {
 		boolean flag = candidateService.updateStatus(candid);
 		if (flag) {
 		}
-        return "redirect:/exam/monitor?subtesttakerId=" + sId;
+        return "redirect:monitor?subtesttakerId=" + sId;
     }
 
 	
@@ -311,7 +311,7 @@ public class ProctorController {
 	 * } catch (NumberFormatException e) { System.out.println("Invalid ID format: "
 	 * + id); } catch (Exception e) { // Log the exception e.printStackTrace(); }
 	 * 
-	 * return "redirect:/exam/monitor"; }
+	 * return "redirect:monitor"; }
 	 */
 
 	 @Scheduled(fixedRate = 5000)

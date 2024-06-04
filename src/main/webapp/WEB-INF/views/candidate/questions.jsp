@@ -389,13 +389,13 @@ input[type="checkbox"]:checked+span {
         function redirectToLogin() {
             //window.location.href = 'pageLogin.jsp';
             
-            window.location.href = "http://localhost:8088/exam/logout";
+            window.location.href = "logout";
         }
 
         function redirectToBlockLogin() {
             //window.location.href = 'pageLogin.jsp';
             
-            window.location.href = "http://localhost:8088/exam/blockLogout";
+            window.location.href = "blockLogout";
         }
         
         
@@ -439,7 +439,7 @@ input[type="checkbox"]:checked+span {
              // Delay the execution of the AJAX request by 1 second
              setTimeout(function() {
                  $.ajax({
-                     url: "/exam/liveCandidateDetail",
+                     url: "liveCandidateDetail",
                      method: "GET",
                      success: function(res) {
                          console.log(res);
@@ -538,7 +538,7 @@ input[type="checkbox"]:checked+span {
 
 	                // Send the data to the server
 	                $.ajax({
-	                    url: "/exam/updateCandEndTime",
+	                    url: "updateCandEndTime",
 	                    method: "POST",
 	                    contentType: "application/json",
 	                    data: JSON.stringify(data),
@@ -595,7 +595,7 @@ input[type="checkbox"]:checked+span {
 									id="background">
 									<div class="imgposition col-md-2"
 										style="margin-left: 1px; margin-bottom: 1em;">
-										<img alt="" src="../img/logocsm.png" id="logoImg">
+										<img alt="" src="./img/logocsm.png" id="logoImg">
 									</div>
 									<div class="col">
 
@@ -652,7 +652,7 @@ if(diff < mins/4 && diff >= 2){
 $("#timeid").css("color", "red");
 }else
 if(diff < 1){
-window.location.href = "http://localhost:8088/exam/logout";
+window.location.href = "logout";
 }
 let sec = Math.floor(diff%60);
 let min = Math.floor(diff/60)%60;
@@ -663,7 +663,7 @@ $("#timeid").text((hour < 10 ? "0"+hour : hour)+":"+(min < 10 ? "0"+min : min)+"
 			</c:if>
 
 			<c:if test="${currentTime-endExam gt 0}">
-				<c:redirect url="http://localhost:8088/exam/logout" />
+				<c:redirect url="logout" />
 			</c:if>
 
 			<!-- <div class="time border m-1 mr-3"
@@ -674,16 +674,16 @@ style="font-size: 20px; text-shadow: 2px 2px 8px rgb(56, 50, 50);"></label>
 			<div class="marks border mr-2">
 				<div class="row">
 					<label class="ml-4 d-flex align-items-center"> <img alt=""
-						src="../img/greenSQ.png" id="greensquare"
+						src="./img/greenSQ.png" id="greensquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>Answered</strong>
 					</label> <label class="ml-2 d-flex align-items-center"> <img alt=""
-						src="../img/redsquare.png" id="redsquare"
+						src="./img/redsquare.png" id="redsquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>Not
 							Answered</strong>
 					</label>
 					
 					<label class="ml-4 d-flex align-items-center"><img alt=""
-						src="../img/graysquare.png" id="graysquare"
+						src="./img/graysquare.png" id="graysquare"
 						style="width: 20px; height: 20px;" class="mr-1"> <strong>
 							Not Visited</strong></label>
 				</div>
@@ -1056,7 +1056,7 @@ Swal.fire({
 	}).then((result) => {
 	    // Redirect to the logout endpoint after clicking OK
 	    if (result.isConfirmed) {
-	      window.location.href = 'http://localhost:8088/exam/logout1'; 
+	      window.location.href = 'http://localhost:8088/onlinecas/logout1'; 
 	    }
 	  });
 }

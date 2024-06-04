@@ -483,7 +483,6 @@ function submitSubtestTaker() {
                           SubTestTakerName+' Batch successfully Saved',
                           'success'
                           ).then((result) => {
-                        	//$("body").load("http://localhost:8088/exam/createFolder");
                         	  location.reload();
                       	});
                       }else if(response == "exists"){

@@ -109,7 +109,7 @@ public class ProctorControllerTest {
         when(httpSession.getAttribute("sessionData")).thenReturn(user);
 
        
-        mockMvc.perform(get("/exam/forgetPassword"))
+        mockMvc.perform(get("forgetPassword"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("proctor/resetPassword"))
                 .andExpect(model().attributeExists("username"))
@@ -124,7 +124,7 @@ public class ProctorControllerTest {
 	  User user = new User(); user.setName("TestUser"); user.setUserId(123);
 	  when(httpSession.getAttribute("sessionData")).thenReturn(user);
 	  
-	  mockMvc.perform(post("/exam/changepassword") .param("newpassword",
+	  mockMvc.perform(post("changepassword") .param("newpassword",
 	  "newPassword123") .param("cpassword", "newPassword123") .param("userid",
 	  "123")) .andExpect(status().isOk())
 	  .andExpect(view().name("proctor/resetPassword"))
@@ -147,7 +147,7 @@ public class ProctorControllerTest {
 
 	        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(proctorController).build();
 
-	        mockMvc.perform(get("/exam/manageProfile"))
+	        mockMvc.perform(get("manageProfile"))
 	                .andExpect(status().isOk())
 	                .andExpect(view().name("proctor/manageProfile"))
 	                .andExpect(model().attributeExists("username"))
@@ -168,7 +168,7 @@ public class ProctorControllerTest {
 
 	      MockMvc mockMvc = MockMvcBuilders.standaloneSetup(proctorController).build();
 
-	      mockMvc.perform(get("/exam/getQuestion"))
+	      mockMvc.perform(get("getQuestion"))
 	              .andExpect(status().isOk())
 	              .andExpect(view().name("proctor/addQuestion"))
 	              .andExpect(model().attributeExists("codelist", "allListItem"))
@@ -188,13 +188,13 @@ public class ProctorControllerTest {
 
 	        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(proctorController).build();
 
-	        mockMvc.perform(MockMvcRequestBuilders.post("/exam/questionAdd")
+	        mockMvc.perform(MockMvcRequestBuilders.post("questionAdd")
 	                .param("examCode", "code1")
 	                .param("itemName", "1") 
 	                .param("questionText", questText)
 	                .param("questionType", questType))
 	                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-	                .andExpect(MockMvcResultMatchers.redirectedUrl("/exam/getQuestion"));
+	                .andExpect(MockMvcResultMatchers.redirectedUrl("getQuestion"));
 
 	        
 	       
@@ -275,7 +275,7 @@ public class ProctorControllerTest {
 	        when(candidateService.findDetailsById(anyInt())).thenReturn(mockCandidate);
 	       // when(candidateService.saveCandidate(any())).thenReturn(mockCandidate);
 
-	        mockMvc.perform(MockMvcRequestBuilders.post("/exam/extraTime")
+	        mockMvc.perform(MockMvcRequestBuilders.post("extraTime")
 	                .param("candId", candId)
 	                .param("extraTime", extraTime))
 	                .andExpect(MockMvcResultMatchers.status().isOk())
@@ -295,7 +295,7 @@ public class ProctorControllerTest {
 	        when(configureService.getAllConfDetails(anyInt())).thenReturn(new Configure());
 	        when(configureService.getAllConfDetails(isNull())).thenReturn(new Configure());
 
-	        mockMvc.perform(MockMvcRequestBuilders.get("/exam/getListOfExams"))
+	        mockMvc.perform(MockMvcRequestBuilders.get("getListOfExams"))
 	                .andExpect(MockMvcResultMatchers.status().isOk())
 	                .andExpect(MockMvcResultMatchers.view().name("proctor/proctorDashboard"))
 	                .andExpect(MockMvcResultMatchers.model().attributeExists("examList", "examTimeList"));
@@ -326,7 +326,7 @@ public class ProctorControllerTest {
 	        }
 	        System.out.println("Candidate List Size: " + candidates.size());
 	    
-	        mockMvc.perform(get("/exam/monitor"))
+	        mockMvc.perform(get("monitor"))
 	                .andExpect(status().isOk())
 	                .andExpect(view().name("proctor/monitor"))
 	                .andExpect(model().attributeExists("configList", "candidates"))
@@ -346,8 +346,8 @@ public class ProctorControllerTest {
 	       
 	        mockMvc.perform(MockMvcRequestBuilders.get("/updateStatus").param("id", "123"))
 	                .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-	                .andExpect(MockMvcResultMatchers.redirectedUrl("/exam/monitor"))
-	                .andExpect(MockMvcResultMatchers.view().name("redirect:/exam/monitor"));
+	                .andExpect(MockMvcResultMatchers.redirectedUrl("monitor"))
+	                .andExpect(MockMvcResultMatchers.view().name("redirect:monitor"));
 
 	        Mockito.verify(candidateService, Mockito.times(1)).updateStatus(Mockito.eq(123));
 	    }

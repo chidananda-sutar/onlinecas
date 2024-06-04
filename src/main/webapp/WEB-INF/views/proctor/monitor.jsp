@@ -217,7 +217,7 @@ var Id = Integer.parseInt(numericPart); */
     else{
     $(iconElement).removeClass("bi bi-play-fill bi-4x d-block mx-auto text-black custom-icon-size text-center").addClass("bi bi-pause-fill bi-4x d-block mx-auto text-black custom-icon-size text-center");
 // reason=window.prompt("Reason of Block"); 
-  window.location.href = "http://localhost:8088/exam/reasonPopupForBlock?cId="+cId;
+  window.location.href = "reasonPopupForBlock?cId="+cId;
     }
    
     

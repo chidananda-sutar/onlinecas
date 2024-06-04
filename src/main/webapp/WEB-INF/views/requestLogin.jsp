@@ -108,7 +108,7 @@
 
  function cancelPopupBlock(sId) {
 	    
-	    window.location.href = "http://localhost:8088/exam/logout"; 
+	    window.location.href = "logout"; 
 
 	}
 </script>

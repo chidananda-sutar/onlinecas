@@ -244,7 +244,7 @@ public class CandidateControllerTest {
 
         when(subTestTakerService.getAllSubTestTakerByTestTakerId(testTakerId)).thenReturn(subTestTakerList);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/exam/getSubtestTakerByTestTaker")
+        mockMvc.perform(MockMvcRequestBuilders.get("getSubtestTakerByTestTaker")
                 .param("testTakerId", String.valueOf(testTakerId)))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("SubTestTaker1_1,SubTestTaker2_2"));
@@ -297,7 +297,7 @@ public class CandidateControllerTest {
         MultipartFile file = new MockMultipartFile("excelfile", "test.xlsx",
                 "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", content.getBytes());
 
-        mockMvc.perform(fileUpload("/exam/getCandidatesByExcel")
+        mockMvc.perform(fileUpload("getCandidatesByExcel")
                 .file((MockMultipartFile) file))
                 .andExpect(redirectedUrl("./testTakers"));
     }
@@ -306,7 +306,7 @@ public class CandidateControllerTest {
     void testExportToExcel() throws Exception {
        
 
-        mockMvc.perform(get("/exam/candidate/export/excel")
+        mockMvc.perform(get("candidate/export/excel")
                 .contentType(MediaType.APPLICATION_OCTET_STREAM))
                 .andExpect(status().isOk());
     }
@@ -363,7 +363,7 @@ public class CandidateControllerTest {
 
         when(subTestTakerService.getSubTestTaker(subTestTakerId)).thenReturn(subTestTaker);
 
-        ResultActions result = mockMvc.perform(post("/exam/saveConfigure")
+        ResultActions result = mockMvc.perform(post("saveConfigure")
                 .param("subtestName", "YourSubTestName")
                 .param("noOfQuestion", "10")
                 .param("testDate", "2023-12-01")
@@ -384,7 +384,7 @@ public class CandidateControllerTest {
        
         Integer testId = 1;
         Integer subTestId = 2;
-        ResultActions result = mockMvc.perform(get("/exam/checkQuestionAviableOrNot")
+        ResultActions result = mockMvc.perform(get("checkQuestionAviableOrNot")
                 .param("testId", testId.toString())
                 .param("sId", subTestId.toString()));
         Integer totalQuestions = questionSubTestService.countAllQuestionBySubtestId(subTestId);
@@ -405,7 +405,7 @@ public class CandidateControllerTest {
         when(candidateService.findCandidateBySubTestTakerId(subTestTakerId)).thenReturn(candidateList);
         when(configureService.findConfigureBySubTestTakerId(subTestTakerId)).thenReturn(config);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/exam/sendEmailToCandidates"))
+        mockMvc.perform(MockMvcRequestBuilders.get("sendEmailToCandidates"))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
                 .andExpect(MockMvcResultMatchers.redirectedUrl("./testTakers"))
                 .andExpect(MockMvcResultMatchers.flash().attribute("emailSent", "yes"));
@@ -435,7 +435,7 @@ public class CandidateControllerTest {
         List<CorrectAnswer> correctAnswers = new ArrayList<>();
         when(correctAnswerService.getAllAnswerByQuestionId(questionId)).thenReturn(correctAnswers);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/exam/candidateQuestion"))
+        mockMvc.perform(MockMvcRequestBuilders.post("/onlinecas/candidateQuestion"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.view().name("candidate/questions"))
                 .andExpect(MockMvcResultMatchers.model().attributeExists("currentTime", "startExam", "endExam", "examLogin"));
@@ -470,7 +470,7 @@ public class CandidateControllerTest {
 
         String requestBody = "[{\"questionId\": 1, \"option\": [\"A\"]}]";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/exam/saveExam")
+        mockMvc.perform(MockMvcRequestBuilders.post("saveExam")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBody))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -479,7 +479,7 @@ public class CandidateControllerTest {
     @Test
     void testGetAllCandidatesBySubTestTakerId() throws Exception {
       
-        mockMvc.perform(MockMvcRequestBuilders.get("/exam/getAllCandidatesByStId")
+        mockMvc.perform(MockMvcRequestBuilders.get("getAllCandidatesByStId")
                 .param("subtestTakerId", "1"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
           
@@ -490,7 +490,7 @@ public class CandidateControllerTest {
         when(candidateService.findDetailsById(anyInt())).thenReturn(new Candidate());
         when(candidateService.saveCandidate(any(Candidate.class))).thenReturn(new Candidate());
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/exam/updatePauseState")
+        mockMvc.perform(MockMvcRequestBuilders.post("updatePauseState")
                 .param("candidate_id", "1")
                 .param("newState", "PAUSED"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
@@ -510,7 +510,7 @@ public class CandidateControllerTest {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.registerModule(new JavaTimeModule());
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/exam/updateCandEndTime")
+        mockMvc.perform(MockMvcRequestBuilders.post("updateCandEndTime")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(dto))) 
                 .andExpect(MockMvcResultMatchers.status().isOk())

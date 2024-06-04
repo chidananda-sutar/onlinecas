@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <h1>Question:</h1>
-    <form id="examForm" method="post" action="./exam/candidateQuestion">
+    <form id="examForm" method="post" action="candidateQuestion">
       <div class="form-group">
         <label for="question1">Question 1: What is the capital of France?</label>
         <div class="form-check">

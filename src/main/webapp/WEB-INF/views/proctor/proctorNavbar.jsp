@@ -57,16 +57,10 @@ navbar {
 
 	<div class="row">
 		<div class="imgposition col-md-2" style="margin-left: 0px; padding: 15px">
-			<img alt="" src="../img/logocsm.png">
+			<img alt="" src="./img/logocsm.png">
 		</div>
 		<nav class="navbar col-md-10" style="background-color: #23395d">
 					<div>
-					<!-- <a class="navbar-bar p-3" href="./getQuestion"><i class="fa bi-patch-question-fill fa-2px text-white text-center" aria-hidden="true"></br>Manage Questions</i></a>
-			
-					<a class="navbar-bar p-3" href="./exam"><i class="fa bi-card-list text-white text-center" aria-hidden="true"></br>Manage Exam</i></a>
-				-->
-					
-			 
 					</div>
 					<div>
 					<a class="navbar-bar p-3" href="./candidateAnswerSheet"><i class="fa bi-person-bounding-box fa-2px text-white text-center" aria-hidden="true"></br>Answer Sheet</i></a>
