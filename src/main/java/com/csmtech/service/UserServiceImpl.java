@@ -3,6 +3,7 @@ package com.csmtech.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.csmtech.model.User;
@@ -30,6 +31,10 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User saveDetailsOfUser(User newuser) {
+		
+		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
+		String encodedPassword=encoder.encode(newuser.getPassword());
+		newuser.setPassword(encodedPassword);
 		
 		return userRepository.save(newuser);
 	}
