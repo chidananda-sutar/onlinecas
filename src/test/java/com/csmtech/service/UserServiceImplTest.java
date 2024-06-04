@@ -56,9 +56,9 @@ public class UserServiceImplTest {
         user.setStatus("0");
 
         when(userRepository.findUserDetailsById(5)).thenReturn(user);
-        when(userRepository.getRoleIdByUsernameAndPassword("santhosh","userName@#"))
+        when(userRepository.getRoleIdByUsername("santhosh"))
                 .thenReturn(user.getRole().getRoleId());
-        when(userRepository.findUserByUsernameAndPasswordForCheck("santhosh","userName@#"))
+        when(userRepository.findUserByUsername("santhosh"))
                 .thenReturn(user);
         when(userRepository.getAllUserNotDeleted()).thenReturn(users);
         //when(userRepository.save(any(User.class))).thenReturn(user);
@@ -77,7 +77,7 @@ public class UserServiceImplTest {
     @DisplayName("Test to find role id")
     @Test
     void givenUserNameAndPass_WhenFind_ThenReturnRoleId() {
-        int id = userService.findRoleIdByUsernameAndPassword(user.getUsername(),user.getPassword());
+        int id = userService.findRoleIdByUsername(user.getUsername());
         assertEquals(1,id);
     }
 

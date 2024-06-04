@@ -3,7 +3,7 @@ package com.csmtech.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.csmtech.model.User;
@@ -14,14 +14,17 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	PasswordEncoder encoder;
 
 	@Override
 	public boolean findUserByUsernameAndPassword(String username, String password) {
 		
-		User user=userRepository.findUserByUsernameAndPassword(username,password);
+		User user=userRepository.findUserByUsername(username);
 		if(user!=null)
 		{
-			return true;
+			return encoder.matches(password, user.getPassword());
 		}
 		else {
 			return false;
@@ -31,8 +34,6 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public User saveDetailsOfUser(User newuser) {
-		
-		BCryptPasswordEncoder encoder= new BCryptPasswordEncoder();
 		String encodedPassword=encoder.encode(newuser.getPassword());
 		newuser.setPassword(encodedPassword);
 		
@@ -41,9 +42,9 @@ public class UserServiceImpl implements UserService{
 
 	
 	@Override
-	public int findRoleIdByUsernameAndPassword(String username, String password) {
+	public int findRoleIdByUsername(String username) {
 		
-		return userRepository.getRoleIdByUsernameAndPassword(username,password);
+		return userRepository.getRoleIdByUsername(username);		
 	}
 
 	@Override
@@ -67,7 +68,16 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findUserByUsernameAndPasswordForCheck(String username, String password) {
 		
-		return userRepository.findUserByUsernameAndPasswordForCheck(username,password);
+		User user=userRepository.findUserByUsername(username);
+		System.out.println("Password matches: " + encoder.matches(password, user.getPassword()));
+		System.out.println(password + " " + encoder.encode(password));
+		if(user!=null && encoder.matches(password, user.getPassword()))
+		{
+			return user;
+		}
+		else {
+			return null;
+		}
 	}
 
 	@Override

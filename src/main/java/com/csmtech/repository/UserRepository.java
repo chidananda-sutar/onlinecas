@@ -15,12 +15,12 @@ import com.csmtech.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer>{
 
-	@Query("SELECT u From  User u where u.username=:username and u.password=:password")
-	User findUserByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
+	@Query("SELECT u From  User u where u.username=:username")
+	User findUserByUsername(@Param("username") String username);
 	
 
-	@Query("SELECT role.roleId From  User where username=:username and password=:password")
-	int getRoleIdByUsernameAndPassword(@Param("username") String username,@Param("password") String password);
+	@Query("SELECT role.roleId From  User where username=:username")
+	int getRoleIdByUsername(@Param("username") String username);
 
 	@Query("From User where isDelete='No'")
 	List<User> getAllUserNotDeleted();
@@ -32,7 +32,4 @@ public interface UserRepository extends JpaRepository<User, Integer>{
 
 	@Query(nativeQuery = true, value = "select * from Users where userId=:userId")
 	User findUserDetailsById(Integer userId);
-
-	@Query("SELECT u From  User u where u.username=:username and u.password=:password")
-	User findUserByUsernameAndPasswordForCheck(@Param("username") String username,@Param("password") String password);
 }

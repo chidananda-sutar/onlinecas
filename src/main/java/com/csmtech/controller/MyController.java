@@ -23,6 +23,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -76,6 +77,7 @@ public class MyController {
 	private ReasonService reasonServices;
 	@Autowired
 	private CandidateService candidateService;
+	
 
 	private static final Logger logger = LoggerFactory.getLogger(MyController.class);
 
@@ -183,16 +185,17 @@ public class MyController {
 
 			User user = userService.findUserByUsernameAndPasswordForCheck(username, password);
 			flag = userService.findUserByUsernameAndPassword(username, password);
-
+			logger.info("flag: " + flag);
+			
 			if (flag) {
 
-				int roleid = userService.findRoleIdByUsernameAndPassword(username, password);
+				int roleid = userService.findRoleIdByUsername(username);
 
 				logger.info("---------Role Id is -> " + roleid);
 
 				httpSession.setAttribute("sessionData", user);
 
-				if ("Admin".equals(username) && user.getPassword().equals(password)) {
+				if ("Admin".equals(username) /*&& user.getPassword().equals(password)*/) {
 
 					logger.info("--------roleName->   " + username);
 
@@ -200,7 +203,7 @@ public class MyController {
 
 					return "redirect:./adminDashboard";
 
-				} else if ("Proctor".equals(username) && user.getPassword().equals(password)) {
+				} else if ("Proctor".equals(username) /*&& user.getPassword().equals(password)*/) {
 					model.addAttribute("username", user.getName());
 
 //return "redirect:http://localhost:8090/web?user="+user.getUserId();
