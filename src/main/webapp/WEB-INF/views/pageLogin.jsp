@@ -209,20 +209,21 @@ button : "try again!",
 
 <h3>Welcome to</h3>
 <h4 >CAS(Campus Automation System) </br>Talent Hunt</h4>
+<div></div>
 
 <form method="post" action="./loginHere">
 <div class="col-md-5">
-<h5>LOGIN</h5>
+<h5>LoginId</h5>
 <input type="text" onchange="checkUsername()" name="username" id="username" class="inputtext" ></input>
 </div>
 <div class="col-md-5">
-<h5>PASSWORD</h5>
+<h5>Password</h5>
 <input type="password" name="password" id="password" class="inputtext" ></input>
 </div>
 <div class="row">
 <div class="col-md-8">
 <input type="submit" class="btn btn-success roundcircle"
-value="Log in">
+value="Login">
 <!-- <a id="requestButton" name="requestButton" hidden="true" class="btn btn-danger roundcircle" onclick="requestToLogin()">Request To Login</a> -->
 <a id="requestButton" name="requestButton" hidden="true" class="btn btn-danger roundcircle ml-4" onclick="requestToLogin()" >LoginRequest<a>
 </div>

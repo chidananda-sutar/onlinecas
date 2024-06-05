@@ -110,14 +110,14 @@ JavaScript) */
 
 		<div id="addTestAndSubTestId"
 			style="margin-top: 25px; margin-left: 300px; margin-right: 10px; border: 1px solid black;">
-			<p align="right">
-				<span class="text-danger">*</span> indicates mandatory fields
-			</p>
+			<p class="text-right text-danger">
+                        * indicates mandatory fields
+                    </p>
 			<div class="card text-center"
 				style="margin-right: 5rem; margin-left: 5rem;">
 				<div class="card-header">
 					<ul class="nav nav-tabs card-header-tabs">
-						<li class="nav-item"><a class="nav-link active" id="testId111"
+						<li class="nav-item"><a class="nav-link active" id="testId"
 							onclick="openAddTest()" style="cursor:pointer">Add Test</a></li>
 						<li class="nav-item"><a class="nav-link" id="subTestId"
 							onclick="openSubTest()" style="cursor:pointer">Add SubTest</a></li>
@@ -185,24 +185,25 @@ JavaScript) */
 	</c:if>
 
 	<div id="setDivId">
+	<div class="card-body">
 		<div class="container"
 			style="margin-top: 25px; margin-left: 300px; margin-right: 50px; border: 1px solid black; width: 1000px;">
-			<p align="right">
-				<span class="text-danger">*</span> indicates mandatory fields
-			</p>
-
+			<p class="text-right text-danger">
+                        * indicates mandatory fields
+                    </p>
+<h3 style="margin-left: 0">Edit Properties</h3>
 			<div id="properties">
 				<form action="./addTest" method="post">
 					<input type="hidden" name="userId" id="userId">
 					<div class="card-body">
-						<h3 style="margin-left: 0">Edit Properties</h3>
-						<div class="form-group col-md-6 offset-md-3">
-							<label>Property Type :<span class="text-danger">*</span></label>
-							<br> <a href="./byItemLink" name="property" id="propertyId"
-								value="byItem">By Category</a> <span> | </span> <a
-								href="./byTestLink" name="property" id="propertyId"
-								value="byTest">By Set</a> <br> <span id="genderEr"
-								class="text-danger font-weight-bold"></span>
+						
+						<div class="form-group col-md-6 offset-md-3" style="margin-left: 0">
+							<label >Property Type :<span class="text-danger">*</span></label>
+							<br> <div id="propertyType" class="mt-2">
+                                    <a href="./byItemLink" class="btn btn-primary" name="property" id="propertyId" value="byItem">By Category</a>
+                                    <span class="mx-2">  </span>
+                                    <a href="./byTestLink" class="btn btn-secondary" name="property" id="propertyId" value="byTest">By Set</a>
+                                </div>
 						</div>
 
 					</div>
@@ -210,7 +211,7 @@ JavaScript) */
 			</div>
 		</div>
 	</div>
-
+</div>
 	<%@ include file="footer.jsp" %>
 </body>
 
@@ -220,23 +221,21 @@ JavaScript) */
 		$('#subTest').hide();
 
 	});
-	function openAddTest() {
-		$("#testId").addClass('active')
-		$("#subTestId").removeClass('active')
+	 function openAddTest() {
+	        $("#testId").addClass('active');
+	        $("#subTestId").removeClass('active');
 
-		$("#test").show();
-		$("#subTest").hide();
+	        $("#test").show();
+	        $("#subTest").hide();
+	    }
 
-	}
+	    function openSubTest() {
+	        $("#testId").removeClass('active');
+	        $("#subTestId").addClass('active');
 
-	function openSubTest() {
-		$("#testId").removeClass('active')
-		$("#subTestId").addClass('active')
-
-		$("#test").hide();
-		$("#subTest").show();
-
-	}
+	        $("#test").hide();
+	        $("#subTest").show();
+	    }
 </script>
 
 <script type="text/javascript">

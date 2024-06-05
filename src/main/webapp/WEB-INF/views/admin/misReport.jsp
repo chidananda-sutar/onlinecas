@@ -67,10 +67,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 	<div class="card" id="registerCandidate">
 
 
-		<h3 class="card-title text-center text-dark">Summary report</h3>
+		<h3 class="text-center text-danger mb-4">Summary report</h3>
 
 		<div class="card-header">
-			<h4 class="text-center text-danger">Filter</h4>
+			<h4 class="text-center text-danger"></h4>
 			<form class="form-group" method="post" action="./searchYear">
 				<div class="row offset-md-3">
 
@@ -83,7 +83,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 					</div>
 
 					<div class="col-md-3 control-label">
-						<label class="text-primary font-weight-bold">Select
+						<label class="text-primary font-weight-bold">
 							College Name </label> <select class="form-control" name="testTakerName"
 							id="testTakerNameId">
 							<option value="0">All</option>

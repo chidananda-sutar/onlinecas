@@ -48,10 +48,10 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 <div class="card" id="registerCandidate">
 				
               
-                <h3 class="card-title text-center text-dark">Qualified Candidates List</h3>
+                <h3 class="card-title text-center text-dark">Qualified Candidates </h3>
                 
               <div class="card-header">
-              <h4 class="text-center text-danger" >Filter</h4>
+              <h4 class="text-center text-danger" ></h4>
 					<form class="form-group" method="post"
 				action="./searchQualifiedCandidateByCutoff">
 				<div class="row">
@@ -68,7 +68,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 
 					</div>
 					<div class="col-md-3 control-label">
-						<label class="text-primary font-weight-bold">Select Batch
+						<label class="text-primary font-weight-bold"> Batch
 						</label> <select class="form-control" name="subTestTakerName"
 							id="subTestTakerNameId">
 							<option value='0'>--select--</option>

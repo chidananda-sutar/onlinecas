@@ -35,15 +35,15 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 <div class="card" id="registerCandidate">
 				
               
-                <h3 class="card-title text-center text-dark">Not Appeared Candidates List</h3>
+                <h3 class="text-center text-danger mb-4">Not Appeared Candidates</h3>
                 
               <div class="card-header">
-              <h4 class="text-center text-danger" >Filter</h4>
+              <h4 class="text-center text-danger" ></h4>
 					<form class="form-group" method="post"
 				action="./searchNotAppearedCandidate">
 				<div class="row">
 					<div class="col-md-3 control-label offset-md-3">
-						<label class="text-primary font-weight-bold">Select
+						<label class="text-primary font-weight-bold">
 							College Name<sup class="text-danger">*</sup>
 						</label> <select class="form-control" name="testTakerName"
 							id="testTakerNameId" onchange="getSub()">
@@ -57,7 +57,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 
 					</div>
 					<div class="col-md-3 control-label">
-						<label class="text-primary font-weight-bold">Select Batch<sup
+						<label class="text-primary font-weight-bold"> Batch<sup
 							class="text-danger">*</sup>
 						</label> <select class="form-control" name="subTestTakerName"
 							id="subTestTakerNameId">
@@ -84,7 +84,7 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 									<th>Candidate Email</th>
 									<th>Candidate Phone No.</th>
 									<th>College Name</th>
-									<th>College Batch Name</th>
+									<th> Batch Name</th>
 									<th>Placement Officer Email</th>
 									<th>Placement Officer Phone No.</th>
 									<th>Date of Exam</th>

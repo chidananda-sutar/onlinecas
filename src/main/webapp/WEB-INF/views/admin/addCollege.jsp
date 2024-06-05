@@ -473,12 +473,14 @@ href="#communication">Communication</a></li>
 <div id="addTab" class="card-body tab-pane active">
 
 
-<h2 class="text-primary text-center">Add College</h2>
+<h2 class="text-primary text-center">Add College </h2>
 
 
 
 
-
+<p class="text-right text-danger">
+                        * indicates mandatory fields
+                    </p>
 
 <form id="collegeForm" action="./saveCollege"
 
@@ -625,7 +627,7 @@ oninput="limitText(this , 20)" id="collegeAddress">${updateCollege.collegeAddres
 <div class="text-center mt-3" id="divCenter">
 
 
-<input type="submit" class="btn btn-info"> <input
+<input type="submit" class="btn btn-success"> <input
 
 
 class="btn btn-danger" type="reset">

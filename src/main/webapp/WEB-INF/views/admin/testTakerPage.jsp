@@ -399,9 +399,9 @@ var invalidmobileNo = "<c:out value='${invalidmobileNo}' />";
 	<div class="container" id="setCollege">
 		<div class="container"
 			style="margin-top: 25px; margin-left: 150px; margin-right: 50px; border: 1px solid black;">
-			<p align="right">
-				<span class="text-danger">*</span> indicates mandatory fields
-			</p>
+			<p class="text-right text-danger">
+                        * indicates mandatory fields
+                    </p>
 			<div class="card text-center"
 				style="margin-right: 5rem; margin-left: 5rem;">
 				<div class="card-header">
@@ -483,6 +483,7 @@ function submitSubtestTaker() {
                           SubTestTakerName+' Batch successfully Saved',
                           'success'
                           ).then((result) => {
+                        	//$("body").load("http://localhost:8088/exam/createFolder");
                         	  location.reload();
                       	});
                       }else if(response == "exists"){

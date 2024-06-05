@@ -34,20 +34,34 @@ https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.min.css
 </head>
 
 <body>
-<div class="container">
-		<h3 class="text-center text-danger">Analysis Report</h3>
-	<div class="container" style="margin-top: 25px; margin-right: 50px; border: 1px solid black;">
-				<ul >
-					<li class="nav-item"><a href="./registerCandidatesReport" style="cursor:pointer;">Register Candidates</a></li>
-					<li class="nav-item"><a href="./appearedCandidatesReport" style="cursor:pointer;">Appeared Candidates</a></li>
-					<li class="nav-item"><a href="./notAppearedCandidatesReport" style="cursor:pointer;">Not Appeared Candidates</a></li>
-					<li class="nav-item"><a href="./qualifiedCandidatesReport" style="cursor:pointer;">Qualified Candidates</a></li>						
-					<li class="nav-item"><a href="./yearlyReport" style="cursor:pointer;">MIS Report</a></li>
-				</ul>
-			
-			
-		</div>	
-			
+
+
+<div class="container mt-5">
+    <h3 class="text-center text-danger mb-4">Analysis Report</h3>
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">Reports</h5>
+        </div>
+        <div class="card-body">
+            <ul class="nav nav-pills flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="./registerCandidatesReport" style="cursor:pointer;">Registered Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./appearedCandidatesReport" style="cursor:pointer;">Appeared Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./notAppearedCandidatesReport" style="cursor:pointer;">Not Appeared Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./qualifiedCandidatesReport" style="cursor:pointer;">Qualified Candidates</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./yearlyReport" style="cursor:pointer;">MIS Report</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <%@ include file="footer.jsp" %>
 </body>

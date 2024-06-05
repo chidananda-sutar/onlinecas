@@ -2,6 +2,8 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -87,13 +89,13 @@ header {
 </head>
 <body>
 	<br>
-	<h1 class="text-center text-danger">Result Status Here</h1>
+	<h1 class="text-center text-danger">Results</h1>
 	<div class="h3"></div>
 	<%-- ${regdList } --%>
 	<form class="form-group" method="post" action="./searchTest">
 		<div class="row">
 			<div class="col-md-3 control-label offset-md-3">
-				<label class="text-primary font-weight-bold">Select College
+				<label class="text-primary font-weight-bold"> College
 					Name<sup class="text-danger">*</sup>
 				</label> <select class="form-control" name="testTakerName"
 					id="testTakerNameId" onchange="getSub()">
@@ -106,7 +108,7 @@ header {
 
 			</div>
 			<div class="col-md-3 control-label">
-				<label class="text-primary font-weight-bold">Select Batch<sup
+				<label class="text-primary font-weight-bold"> Batch<sup
 					class="text-danger">*</sup>
 				</label> <select class="form-control" name="subTestTakerName"
 					id="subTestTakerNameId">
@@ -136,7 +138,7 @@ header {
 						<th>Candidate Phone No.</th>
 						<th>College Name</th>
 						<th>Batch</th>
-						<th>Mark Got</th>
+						<th>Mark Obtain</th>
 						<th>Total Mark</th>
 						<th>Date of Exam</th>
 						<!-- <th>RESULT STATUS</th> -->
@@ -154,7 +156,8 @@ header {
 								<td>${al.subTestTaker.testTaker.testTakerName}</td>
 								<td>${al.subTestTaker.subTestTakerName}</td>
 								<td>${al.markAppear}</td>
-								<td>${al.totalMark}</td>
+								<td><fmt:formatNumber value="${al.totalMark}" type="number" minFractionDigits="0" maxFractionDigits="0"/>
+								</td>
 								<td>${al.configure.testDate}</td>
 								<%-- <td>${al.resultStatus}</td> --%>
 							</tr>

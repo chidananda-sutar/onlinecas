@@ -63,7 +63,7 @@ navbar {
 					aria-hidden="true"></br>Set Of Question</i></a> <a class="navbar-bar p-3"
 					href="./addCollege"> <i
 					class="fa fa-building-o fa-2px text-white text-center"
-					aria-hidden="true"></br>Add College</i></a> <a class="navbar-bar p-3"
+					aria-hidden="true"></br>Add College </i></a> <a class="navbar-bar p-3"
 					href="./testTakers"><i
 					class="fa fa-user-plus fa-2px text-white text-center"
 					aria-hidden="true"></br>Add Candidate</i> </a>
