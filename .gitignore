@@ -5,3 +5,4 @@
 bin/
 target/
 src/main/resources/static/logs/
+src/main/resources/application-dev.properties

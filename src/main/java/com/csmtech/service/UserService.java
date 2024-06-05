@@ -10,7 +10,7 @@ public interface UserService {
 
 	User saveDetailsOfUser(User newuser);
 
-	int findRoleIdByUsernameAndPassword(String username, String password);
+	int findRoleIdByUsername(String username);
 
 	List<User> getAllUser();
 

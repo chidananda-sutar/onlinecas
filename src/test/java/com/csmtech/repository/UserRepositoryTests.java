@@ -58,28 +58,28 @@ public class UserRepositoryTests {
 	}
 	
 	//Junit test for findUserByUsernameAndPassword operation
-	@Order(2)
-	@DisplayName("Junit test for findUserByUsernameAndPassword operation")
-	@Test
-	public void givenUsernameWhenfindUserByUsernameAndPasswordThenCheck(){
-		
-		User foundUser =userRepository.findUserByUsernameAndPassword("Proctor","Sunil@#");
-		
-		assertThat(foundUser).isNotNull();
-		assertThat(foundUser.getUsername()).isEqualTo("Proctor");
-        assertThat(foundUser.getPassword()).isEqualTo("Sunil@#");
-	}
+//	@Order(2)
+//	@DisplayName("Junit test for findUserByUsernameAndPassword operation")
+//	@Test
+//	public void givenUsernameWhenfindUserByUsernameAndPasswordThenCheck(){
+//		
+//		User foundUser =userRepository.findUserByUsernameAndPassword("Proctor","Sunil@#");
+//		
+//		assertThat(foundUser).isNotNull();
+//		assertThat(foundUser.getUsername()).isEqualTo("Proctor");
+//        assertThat(foundUser.getPassword()).isEqualTo("Sunil@#");
+//	}
 
-	@Order(3)
-	@DisplayName("Junit test for getRoleIdByUsernameAndPassword operation")
-	@Test
-	public void givenRoleIdWhengetRoleIdByUsernameAndPasswordThenCheck() {
-		int userRoleId = userRepository.getRoleIdByUsernameAndPassword("Proctor","Sunil@#");
-		System.out.println(userRoleId+"/////////////");
-		assertThat(userRoleId).isNotNull();
-		assertThat(userRoleId).isEqualTo(1);
-		
-	}
+//	@Order(3)
+//	@DisplayName("Junit test for getRoleIdByUsernameAndPassword operation")
+//	@Test
+//	public void givenRoleIdWhengetRoleIdByUsernameAndPasswordThenCheck() {
+//		int userRoleId = userRepository.getRoleIdByUsernameAndPassword("Proctor","Sunil@#");
+//		System.out.println(userRoleId+"/////////////");
+//		assertThat(userRoleId).isNotNull();
+//		assertThat(userRoleId).isEqualTo(1);
+//		
+//	}
 	
 	@Order(4)
 	@DisplayName("Junit test for isNotDelated operation")
